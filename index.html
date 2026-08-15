@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GenLayer Spinner – Neural Consensus</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #070707;
+      font-family: system-ui, sans-serif;
+    }
+
+    .spinner-container {
+      width: 96px;
+      height: 96px;
+      position: relative;
+    }
+
+    .nodes {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      animation: rotate 1.6s linear infinite;
+    }
+
+    .node {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: #110FFF;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      margin: -5px 0 0 -5px;
+      box-shadow: 0 0 8px rgba(17, 15, 255, 0.6);
+    }
+
+    .node:nth-child(1) { transform: rotate(0deg) translateY(-38px); }
+    .node:nth-child(2) { transform: rotate(45deg) translateY(-38px); }
+    .node:nth-child(3) { transform: rotate(90deg) translateY(-38px); }
+    .node:nth-child(4) { transform: rotate(135deg) translateY(-38px); }
+    .node:nth-child(5) { transform: rotate(180deg) translateY(-38px); }
+    .node:nth-child(6) { transform: rotate(225deg) translateY(-38px); }
+    .node:nth-child(7) { transform: rotate(270deg) translateY(-38px); }
+    .node:nth-child(8) { transform: rotate(315deg) translateY(-38px); }
+
+    .nodes .node {
+      animation: pulse 1.6s ease-in-out infinite;
+    }
+    .nodes .node:nth-child(1) { animation-delay: 0s; }
+    .nodes .node:nth-child(2) { animation-delay: 0.2s; }
+    .nodes .node:nth-child(3) { animation-delay: 0.4s; }
+    .nodes .node:nth-child(4) { animation-delay: 0.6s; }
+    .nodes .node:nth-child(5) { animation-delay: 0.8s; }
+    .nodes .node:nth-child(6) { animation-delay: 1.0s; }
+    .nodes .node:nth-child(7) { animation-delay: 1.2s; }
+    .nodes .node:nth-child(8) { animation-delay: 1.4s; }
+
+    @keyframes pulse {
+      0%, 100% { 
+        background: #110FFF; 
+        transform: scale(1);
+        box-shadow: 0 0 6px rgba(17, 15, 255, 0.5);
+      }
+      50% { 
+        background: #bca2ff; 
+        transform: scale(1.35);
+        box-shadow: 0 0 14px rgba(188, 162, 255, 0.9);
+      }
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .center-mark {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 28px;
+      height: 28px;
+      transform: translate(-50%, -50%);
+      background: linear-gradient(135deg, #110FFF, #bca2ff);
+      border-radius: 6px;
+      box-shadow: 0 0 12px rgba(17, 15, 255, 0.4);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .nodes { animation: none; }
+      .node { animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="spinner-container">
+    <div class="nodes">
+      <div class="node"></div>
+      <div class="node"></div>
+      <div class="node"></div>
+      <div class="node"></div>
+      <div class="node"></div>
+      <div class="node"></div>
+      <div class="node"></div>
+      <div class="node"></div>
+    </div>
+    <div class="center-mark"></div>
+  </div>
+</body>
+</html>
